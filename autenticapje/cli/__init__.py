@@ -26,12 +26,12 @@ class EnvKeys:
 
 @app.command()
 def autenticar(regiao: Annotated[str, Option()] = "1") -> None:
+    clear()
     for item in dir(EnvKeys):
         if item.startswith("_"):
             continue
 
         if item not in env:
-            clear()
             comando_exemplo = f'export {item}="valor"'
             if platform.system() == "Windows":
                 comando_exemplo = (
