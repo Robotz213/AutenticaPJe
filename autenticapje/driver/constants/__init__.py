@@ -1,0 +1,72 @@
+"""Constantes do gerenciador de tarefas."""
+
+from __future__ import annotations
+
+from pathlib import Path
+from typing import TYPE_CHECKING, Literal, TypedDict
+
+if TYPE_CHECKING:
+    from re import Pattern
+
+
+class ColorsDict(TypedDict):
+    """Dicionário de cores para mensagens do bot, conforme o padrão.
+
+    Args:
+        info (Literal["cyan"]): Cor para mensagens informativas.
+        log (Literal["yellow"]): Cor para mensagens de log.
+        error (Literal["red"]): Cor para mensagens de erro.
+        warning (Literal["magenta"]): Cor para mensagens de aviso.
+        success (Literal["green"]): Cor para mensagens de sucesso.
+
+    Returns:
+        TypedDict: Estrutura contendo os tipos de cores para cada
+            mensagem.
+
+    Raises:
+        KeyError: Se uma das chaves obrigatórias estiver ausente.
+
+    """
+
+    info: Literal["cyan"]
+    log: Literal["yellow"]
+    error: Literal["red"]
+    warning: Literal["magenta"]
+    success: Literal["green"]
+
+
+WORKDIR = Path(__file__).cwd()
+
+HTTP_STATUS_FORBIDDEN = 403
+COUNT_TRYS = 15
+
+PADRAO_CNJ: list[Pattern] = [r"^\d{7}-\d{2}\.\d{4}\.\d\.\d{2}\.\d{4}$"]
+CSS_INPUT_PROCESSO = {
+    "1": "#numeroProcesso",
+    "2": "#numeroRecurso",
+}
+
+PADRAO_DATA: list[Pattern] = [
+    r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}$",
+    r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{1,6}$",
+    r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{1,6}Z$",
+    r"^\d{4}-\d{2}-\d{2}"
+    r"^\d{2}:\d{2}:\d{2}$",
+    r"^\d{4}-\d{2}-\d{2}.\d{1,6}$",
+]
+
+
+MAIOR_60_ANOS = "Maior que 60 anos (conforme Lei 10.741/2003)"
+VER_RECURSO = "Clique aqui para visualizar os recursos relacionados"
+INTIMACAO_ELETRONICA = "Sistema de Citação e Intimação Eletrônica"
+COLORS_DICT: ColorsDict = {
+    "info": "cyan",
+    "log": "yellow",
+    "error": "red",
+    "warning": "magenta",
+    "success": "green",
+}
+
+HTTP_OK_STATUS = 200
+NO_CONTENT_STATUS = 204
+MESSAGE = "[({pid}, {typ}, {row}, {dt})> {msg}]"
