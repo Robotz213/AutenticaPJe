@@ -1,7 +1,9 @@
 import json
+import platform
 from os import environ as env
 from pathlib import Path
 
+from clear import clear
 from dotenv import load_dotenv
 from tqdm import tqdm
 from typer import Option, Typer
@@ -29,7 +31,23 @@ def autenticar(regiao: Annotated[str, Option()] = "1") -> None:
             continue
 
         if item not in env:
-            raise KeyError(f'Chave "{item}" não está nas variáveis de ambiente!')
+            clear()
+            comando_exemplo = f'export {item}="valor"'
+            if platform.system() == "Windows":
+                comando_exemplo = (
+                    f'$env:{item}="valor" (Powershell) ou set {item}="valor" (cmd)'
+                )
+            tqdm.write(f'''
+Chave "{item}" não está nas variáveis de ambiente!
+Certifique-se de incluir antes de executar.
+
+Exemplo:
+{comando_exemplo}
+
+Saiba mais em: 
+` https://github.com/Robotz213/AutenticaPJe/blob/main/TemplateEnv.md `  
+                        ''')
+            return
 
     autenticador = AutenticadorPJe(regiao)
     if autenticador.autenticar():
