@@ -2,6 +2,17 @@
 
 Biblioteca Python para auxiliar tarefas de autenticação e assinatura no contexto do PJe (Processo Judicial Eletrônico).
 
+> **Modo de Instalação (Uso geral)**
+>
+> ```sh
+> pip install "git+https://github.com/Robotz213/AutenticaPJe.git"
+> ```
+
+**Requisitos**
+
+- [`Python 3.14+`]("https://www.python.org/ftp/python/3.14.1/python-3.14.1-amd64.exe") (obrigatório).
+- [`Java 21+ (para Jpype1)`](https://builds.openlogic.com/downloadJDK/openlogic-openjdk/21.0.9+10/openlogic-openjdk-21.0.9+10-windows-x64.msi)
+
 **Visão geral**
 
 - **AutenticaPJe**: utilitários para assinar digitalmente documentos, gerenciar keystores e fornecer ferramentas de integração/automação com componentes relacionados ao PJe.
@@ -19,11 +30,6 @@ Biblioteca Python para auxiliar tarefas de autenticação e assinatura no contex
 - Gerenciamento e carregamento de certificados a partir de arquivos PKCS#12 / keystores.
 - Utilitários de formatação para adequar dados ao PJe.
 - Componentes e helpers para automação e integração via driver/elementos.
-
-**Requisitos**
-
-- Python 3.14+ obrigatório.
-- Dependências listadas em `pyproject.toml`.
 
 **Estrutura do código**
 
