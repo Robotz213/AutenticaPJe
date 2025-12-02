@@ -16,4 +16,7 @@ KBDX_PASSWORD="senha_database"
 
 **Disclaimer**
 
-As váriáveis podem ser configuradas diretamente no [Sistema](https://www.alura.com.br/artigos/configurar-variaveis-ambiente-windows-linux-macos) ou em um arquivo `.env`, desde de que o arquivo esteja salvo na mesma pasta de chamada do comando `autenticapje`
+- As **váriáveis de ambiente** podem ser configuradas da seguinte forma:
+
+  > - Diretamente no [**Sistema;**](https://www.alura.com.br/artigos/configurar-variaveis-ambiente-windows-linux-macos)
+  > - Em um arquivo **`.env`**, desde de que o arquivo esteja salvo na mesma pasta de chamada do comando **`autenticapje`**

@@ -4,14 +4,14 @@ Biblioteca Python para auxiliar tarefas de autenticação e assinatura no contex
 
 **Configuração**
 
-> **Instalação**
->
+**Instalação**
+
 > ```sh
 > pip install "git+https://github.com/Robotz213/AutenticaPJe.git"
 > ```
 
-> **Uso**
->
+**Uso**
+
 > ```sh
 > autenticapje --regiao 1 # Região para autenticar (ex.: TRT1 = 1)
 > ```
