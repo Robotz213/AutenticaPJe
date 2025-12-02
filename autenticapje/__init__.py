@@ -11,6 +11,7 @@ from uuid import uuid4
 import jpype
 import pyotp
 import requests
+from dotenv import load_dotenv
 from jpype import JClass
 from selenium.common import TimeoutException
 from selenium.common.exceptions import (
@@ -32,6 +33,7 @@ from .keystore import KeyStore
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
+load_dotenv()
 
 NO_CONTENT_STATUS = 204
 ENDPOINT_DESAFIO = "https://sso.cloud.pje.jus.br/auth/realms/pje/pjeoffice-rest"
