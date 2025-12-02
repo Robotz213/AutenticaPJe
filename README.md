@@ -18,10 +18,10 @@ Biblioteca Python para auxiliar tarefas de autenticação e assinatura no contex
 
 **Requisitos**
 
-- [`Banco de dados Keepass configurado com o MFA da credencial`](https://keepassxc.org/)
-- [`Python 3.14+ (obrigatório)`]("https://www.python.org/ftp/python/3.14.1/python-3.14.1-amd64.exe").
-- [`Java 21+ (para Jpype1)`](https://builds.openlogic.com/downloadJDK/openlogic-openjdk/21.0.9+10/openlogic-openjdk-21.0.9+10-windows-x64.msi)
-- [`Configuração das variaveis de ambiente`](./TemplateEnv.md)
+- [`Keepass`](https://keepassxc.org/) (Banco de dados configurado com OTP);
+- [`Python 3.14+`]("https://www.python.org/ftp/python/3.14.1/python-3.14.1-amd64.exe") (**obrigatório**);
+- [`Java 21+)`](https://builds.openlogic.com/downloadJDK/openlogic-openjdk-jre/21.0.9+10/openlogic-openjdk-jre-21.0.9+10-windows-x64.msi) (Necessário para o [Jpype1](https://jpype.readthedocs.io/en/stable/));
+- Configuração das [`variáveis de ambiente`](./TemplateEnv.md)
 
 **Visão geral**
 
