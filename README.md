@@ -22,57 +22,8 @@ Biblioteca Python para auxiliar tarefas de autenticação e assinatura no contex
 
 **Requisitos**
 
-- Python 3.8+ recomendado.
+- Python 3.14+ obrigatório.
 - Dependências listadas em `pyproject.toml`.
-
-**Instalação (modo desenvolvimento)**
-
-1. Crie e ative um ambiente virtual:
-
-```powershell
-python -m venv .venv;
-.\.venv\Scripts\Activate.ps1
-```
-
-2. Instale em modo editable:
-
-```powershell
-pip install -e .
-```
-
-Ou instale dependências diretamente com:
-
-```powershell
-pip install -r requirements.txt
-```
-
-**Uso básico (exemplo)**
-
-Exemplo mínimo de como usar a biblioteca para carregar um keystore e assinar um arquivo:
-
-```python
-from autenticapje.keystore import Keystore
-from autenticapje.assinador import Assinador
-
-# carregar certificado (exemplo)
-ks = Keystore.from_p12('meu_certificado.p12', senha='senha')
-
-# criar objeto assinador e assinar
-assinador = Assinador(keystore=ks)
-assinador.assinar_arquivo('documento.pdf', 'documento-assinado.pdf')
-```
-
-Substitua os nomes de classes/métodos conforme a API real presente nos módulos.
-
-**Uso via CLI**
-
-Se o pacote expõe comandos na pasta `autenticapje/cli`, você poderá executar algo como:
-
-```powershell
-python -m autenticapje.cli comando --opcao valor
-```
-
-Consulte os módulos em `autenticapje/cli` para ver as opções disponíveis.
 
 **Estrutura do código**
 
@@ -82,29 +33,6 @@ Consulte os módulos em `autenticapje/cli` para ver as opções disponíveis.
 - `autenticapje/driver/` — automação e integração com webdrivers.
 - `autenticapje/elements/pje.py` — elementos/seletores específicos do PJe.
 
-**Desenvolvimento e testes**
-
-- Para rodar testes (se houver), execute o runner de testes da sua escolha, p.ex.:
-
-```powershell
-pytest
-```
-
-- Recomenda-se adicionar um `requirements-dev.txt` com ferramentas de lint e testes.
-
-**Contribuição**
-
-- Abra issues para discutir bugs e features.
-- Faça fork, crie branch com nome descritivo e envie pull requests com mudanças pequenas e bem documentadas.
-
-**Licença**
-
-Verifique a licença no `pyproject.toml` ou no arquivo `LICENSE` do repositório. Se não houver um arquivo de licença, considere adicionar uma antes de redistribuir.
-
 **Contatos / Suporte**
 
-- Para dúvidas sobre o código, abra uma issue no repositório ou contate o mantenedor do projeto.
-
----
-
-Este README foi gerado automaticamente como ponto de partida. Posso ajustar exemplos, adicionar instruções específicas para as funções reais do código ou traduzir se preferir outro formato.
+- Para dúvidas sobre o código, abra uma issue no repositório ou contate o [mantenedor](mailto:nicholas@robotz.dev) do projeto.
