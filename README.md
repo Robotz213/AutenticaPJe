@@ -10,7 +10,7 @@ Biblioteca Python para auxiliar tarefas de autenticação e assinatura no contex
 
 **Requisitos**
 
-- [`Python 3.14+`]("https://www.python.org/ftp/python/3.14.1/python-3.14.1-amd64.exe") (obrigatório).
+- [`Python 3.14+ (obrigatório)`]("https://www.python.org/ftp/python/3.14.1/python-3.14.1-amd64.exe").
 - [`Java 21+ (para Jpype1)`](https://builds.openlogic.com/downloadJDK/openlogic-openjdk/21.0.9+10/openlogic-openjdk-21.0.9+10-windows-x64.msi)
 
 **Visão geral**
