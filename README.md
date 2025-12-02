@@ -2,16 +2,26 @@
 
 Biblioteca Python para auxiliar tarefas de autenticação e assinatura no contexto do PJe (Processo Judicial Eletrônico).
 
-> **Modo de Instalação (Uso geral)**
+**Configuração**
+
+> **Instalação**
 >
 > ```sh
 > pip install "git+https://github.com/Robotz213/AutenticaPJe.git"
 > ```
 
+> **Uso**
+>
+> ```sh
+> autenticapje --regiao 1 # Região para autenticar (ex.: TRT1 = 1)
+> ```
+
 **Requisitos**
 
+- [`Banco de dados Keepass configurado com o MFA da credencial`](https://keepassxc.org/)
 - [`Python 3.14+ (obrigatório)`]("https://www.python.org/ftp/python/3.14.1/python-3.14.1-amd64.exe").
 - [`Java 21+ (para Jpype1)`](https://builds.openlogic.com/downloadJDK/openlogic-openjdk/21.0.9+10/openlogic-openjdk-21.0.9+10-windows-x64.msi)
+- [`Configuração das variaveis de ambiente`](./TemplateEnv.md)
 
 **Visão geral**
 

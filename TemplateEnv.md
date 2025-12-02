@@ -13,3 +13,7 @@ SENHA_CERTIFICADO="senha_certificado"
 KBDX_PATH="/caminho/para/database.kbdx"
 KBDX_PASSWORD="senha_database"
 ```
+
+**Disclaimer**
+
+As váriáveis podem ser configuradas diretamente no [Sistema](https://www.alura.com.br/artigos/configurar-variaveis-ambiente-windows-linux-macos) ou em um arquivo `.env`, desde de que o arquivo esteja salvo na mesma pasta de chamada do comando `autenticapje`
