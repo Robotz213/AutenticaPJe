@@ -12,7 +12,6 @@ import jpype
 import pyotp
 import requests
 from dotenv import load_dotenv
-from jpype import JClass
 from selenium.common import TimeoutException
 from selenium.common.exceptions import (
     UnexpectedAlertPresentException,
@@ -33,15 +32,13 @@ from .keystore import KeyStore
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
+
 load_dotenv()
 
 NO_CONTENT_STATUS = 204
 ENDPOINT_DESAFIO = "https://sso.cloud.pje.jus.br/auth/realms/pje/pjeoffice-rest"
 
 MessageError = "Erro ao executar operaçao: "
-ByteArrayInputStream = JClass("java.io.ByteArrayInputStream")
-CertificateFactory = JClass("java.security.cert.CertificateFactory")
-ArrayList = JClass("java.util.ArrayList")
 
 
 class AutenticadorPJe:

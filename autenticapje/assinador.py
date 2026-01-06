@@ -5,20 +5,12 @@ from __future__ import annotations
 import base64
 from os import environ
 from pathlib import Path
-from typing import TYPE_CHECKING, Annotated, ClassVar, Literal, cast
+from typing import TYPE_CHECKING, Annotated, ClassVar, cast
 
 import jpype
 from clear import clear
 from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.asymmetric import padding
-from cryptography.hazmat.primitives.asymmetric.dh import DHPrivateKey
-from cryptography.hazmat.primitives.asymmetric.dsa import DSAPrivateKey
-from cryptography.hazmat.primitives.asymmetric.ec import EllipticCurvePrivateKey
-from cryptography.hazmat.primitives.asymmetric.ed448 import Ed448PrivateKey
-from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PrivateKey
-from cryptography.hazmat.primitives.asymmetric.rsa import RSAPrivateKey
-from cryptography.hazmat.primitives.asymmetric.x448 import X448PrivateKey
-from cryptography.hazmat.primitives.asymmetric.x25519 import X25519PrivateKey
 from cryptography.hazmat.primitives.serialization import (
     Encoding,
 )
@@ -27,38 +19,26 @@ from cryptography.hazmat.primitives.serialization.pkcs12 import (
     PKCS12KeyAndCertificates,
     load_pkcs12,
 )
+from jpype import JArray, JByte
 
 # Importa classes Java
-from jpype import JArray, JByte, JClass
+from jpype import imports as imports
 from tqdm import tqdm
 from typer import Argument, Option, Typer
 
 if TYPE_CHECKING:
     from cryptography.x509 import Certificate
 
+    from typings import Algoritmos, PrivateKey
+
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
+from java.io import ByteArrayInputStream
+from java.security.cert import CertificateFactory
+from java.util import ArrayList
+
 app = Typer()
-
-
-type PrivateKey = (
-    DHPrivateKey
-    | Ed25519PrivateKey
-    | Ed448PrivateKey
-    | RSAPrivateKey
-    | DSAPrivateKey
-    | EllipticCurvePrivateKey
-    | X25519PrivateKey
-    | X448PrivateKey
-)
-
-type Algoritmos = Literal["SHA256withRSA", "SHA1withRSA", "MD5withRSA"]
-
-
-ByteArrayInputStream = JClass("java.io.ByteArrayInputStream")
-CertificateFactory = JClass("java.security.cert.CertificateFactory")
-ArrayList = JClass("java.util.ArrayList")
 
 
 class ConteudoAssinado:
@@ -104,7 +84,6 @@ class ConteudoAssinado:
 
     @property
     def cadeia_base64(self) -> str:
-
         cf = CertificateFactory.getInstance("X.509")
         java_chain = ArrayList()
 
@@ -159,7 +138,6 @@ class Assinador:
         conteudo: str | bytes,
         algoritmo_assinatura: Algoritmos = "MD5withRSA",
     ) -> ConteudoAssinado:
-
         if isinstance(conteudo, str):
             conteudo = conteudo.encode()
 
@@ -199,10 +177,7 @@ class Assinador:
     def cadeia(self) -> list[PKCS12Certificate]:
         chain = [self.certficado]
         chain.extend(
-            [
-                cert.certificate
-                for cert in self.certificado_carregado.additional_certs
-            ],
+            [cert.certificate for cert in self.certificado_carregado.additional_certs],
         )
         return chain
 
